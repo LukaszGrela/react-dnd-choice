@@ -18,6 +18,7 @@ class DnDChoice extends React.Component {
         finished: false,
         complete: false,
         validating: false,
+        showFeedback: false,
         feedback: {
             correct: {
                 title: 'Correct',
@@ -137,11 +138,22 @@ class DnDChoice extends React.Component {
                 }
                 this.setState(prevState => ({
                     result: correct,
-                    validating: false
+                    validating: false,
+                    showFeedback: true
                 }));
 
             }, 250);
         });
+    }
+    closeFeedback = () => {
+        this.setState(prevState => ({
+            showFeedback: false
+        }));
+    }
+    openFeedback = () => {
+        this.setState(prevState => ({
+            showFeedback: true
+        }));
     }
     render = () => {
         const {
@@ -152,7 +164,8 @@ class DnDChoice extends React.Component {
             complete,
             activity,
             feedback,
-            result } = this.state;
+            result,
+            showFeedback } = this.state;
         const instruction = finished && complete ? instructions.final : instructions.initial;
         const fb = result ? feedback.correct : feedback.incorrect;
         return (
@@ -167,8 +180,8 @@ class DnDChoice extends React.Component {
                     locked={complete}
                     handleItemDropped={this.handleItemDropped}
                 />
-                {result != undefined &&
-                    <Panel>
+                {(result != undefined && showFeedback) &&
+                    <Panel handlePanelDismiss={this.closeFeedback}>
                         <div className={'feedback' + (result ? ' correct' : ' incorrect')}>
                             <div className='feedback-title'>{fb.title}</div>
                             <div className='feedback-body'>{fb.message}</div>
@@ -177,12 +190,13 @@ class DnDChoice extends React.Component {
                 }
                 {finished &&
                     <div className='activity-buttons'>
-                        <button
-                            className='btn submit'
-                            disabled={complete}
-                            onClick={
-                                this.handleSubmit
-                            }>Submit</button>
+                        {!complete &&
+                            <button
+                                className='btn submit'
+                                disabled={complete}
+                                onClick={
+                                    this.handleSubmit
+                                }>Submit</button>}
                     </div>
                 }
                 <div className='instruction-text'>{instruction}</div>
