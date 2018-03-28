@@ -1,6 +1,6 @@
 {
   "name": "dnd-choice",
-  "version": "0.0.1",
+  "version": "0.5.1",
   "description": "Drag and Drop activity - DnD Choice example",
   "main": "index.js",
   "author": "Lukasz 'Severiaan' Grela",
