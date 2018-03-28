@@ -26,17 +26,17 @@ class Panel extends Component {
         return (
             <div className='panel'>
                 <div className='cloak'
-                    onClick={() => { this.dismissPanel(); }}></div>
+                    onClick={this.dismissPanel}></div>
                 <div className='panel-content card'>
                     <button className='close'
-                        onClick={() => { this.dismissPanel(); }}><IconCross /></button>
+                        onClick={this.dismissPanel}><IconCross /></button>
                     {this.props.children}</div>
-            </div>
+            </div >
         );
     }
 }
 Panel.propTypes = {
     children: PropTypes.node.isRequired,
-    handlePanelDismiss: PropTypes.func
+    handlePanelDismiss: PropTypes.func.isRequired
 }
 export default Panel;
