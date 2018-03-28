@@ -8,9 +8,9 @@ import './styles/DnDChoiceDropZone.scss'
 
 class DnDChoiceDropZone extends Component {
     render = () => {
-        const { connectDropTarget, id, children } = this.props;
+        const { connectDropTarget, id, children, locked } = this.props;
         return connectDropTarget(
-            <div className='drop-zone'>
+            <div className={'drop-zone' + (locked ? ' locked' : '')}>
                 <div className='heading'>{id}</div>
                 <div className='slots'>
                     {children}

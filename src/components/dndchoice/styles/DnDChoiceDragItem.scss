@@ -8,4 +8,7 @@
     cursor: pointer;
     cursor: -webkit-grab;
     font-size: 1.4rem;
+    &.locked {
+        cursor: default;
+    }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
+import PropTypes from 'prop-types';
 
 import DnDChoiceDropZone from './DnDChoiceDropZone';
 import DnDChoiceDragItem from './DnDChoiceDragItem';
@@ -15,7 +16,7 @@ class DnDChoiceContainer extends React.Component {
     }
 
     render = () => {
-        const { dragitems } = this.props;
+        const { dragitems, locked } = this.props;
         const next = nextDragItemSelector(dragitems);
         const animals = tenantsSelector(dragitems, 'animals');
         const sports = tenantsSelector(dragitems, 'sports');
@@ -25,9 +26,11 @@ class DnDChoiceContainer extends React.Component {
                 <div className='dnd-dropzones'>
                     <DnDChoiceDropZone
                         id={'animals'}
+                        locked={locked}
                         onDrop={this.handleDrop} >
                         {
                             animals.map(dragitem => <DnDChoiceDragItem
+                                locked={locked}
                                 id={dragitem.label}
                                 key={dragitem.label}
                                 {...dragitem} />)
@@ -37,15 +40,18 @@ class DnDChoiceContainer extends React.Component {
                         {
                             next &&
                             <DnDChoiceDragItem
+                                locked={locked}
                                 id={next.label}
                                 {...next} />
                         }
                     </div>
                     <DnDChoiceDropZone
                         id={'sports'}
+                        locked={locked}
                         onDrop={this.handleDrop}>
                         {
                             sports.map(dragitem => <DnDChoiceDragItem
+                                locked={locked}
                                 id={dragitem.label}
                                 key={dragitem.label}
                                 {...dragitem} />)
@@ -56,6 +62,8 @@ class DnDChoiceContainer extends React.Component {
         );
     }
 }
-
+DnDChoiceContainer.propTypes = {
+    locked: PropTypes.bool.isRequired
+}
 
 export default DragDropContext(HTML5Backend)(DnDChoiceContainer);

@@ -199,7 +199,7 @@ class DnDChoice extends React.Component {
                                 }>Submit</button>}
                     </div>
                 }
-                <div className='instruction-text'>{instruction}</div>
+                <div className='instruction-text' dangerouslySetInnerHTML={{ __html: instruction }} />
                 <footer><nav><NavLink to='/'>Next &gt;</NavLink></nav></footer>
             </article>
         );
