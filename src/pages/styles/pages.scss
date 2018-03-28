@@ -1,0 +1,46 @@
+.page {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.container {
+    padding-bottom: 2.2rem;
+}
+
+
+.activity-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 4rem;
+    padding-bottom: 2.5rem;
+}
+.activity-buttons > * {
+    align-self: center;
+}
+
+.btn {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-width: 0.1rem;
+    min-width: 7rem;
+}
+
+footer {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    height: 6rem;
+    nav {
+        color: #333;
+        align-self: center;
+        a {
+            color: inherit;
+            font-weight: bold;
+            text-decoration: none;
+            &:hover {
+                color: #13a143;
+            }
+        }
+    }
+}

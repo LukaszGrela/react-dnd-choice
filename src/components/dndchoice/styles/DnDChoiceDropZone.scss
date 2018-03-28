@@ -1,0 +1,21 @@
+.drop-zone {
+    color: #fff;
+    background-color: #eaeaea;
+    border-radius: 0.6rem;
+    border: 0.3rem solid #999;
+    height: 19.7rem;
+    width: 28rem;
+    overflow: hidden;
+    .heading {
+        background-color: #b6b6b6;
+        padding: 1rem;
+        font-weight: bold;
+        text-transform: capitalize;
+        font-size: 1.8rem;
+        background: #b6b6b6;
+        background: -moz-linear-gradient(top, #b6b6b6 0%, #999 100%);
+        background: -webkit-linear-gradient(top, #b6b6b6 0%, #999 100%);
+        background: linear-gradient(to bottom, #b6b6b6 0%, #999 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b6b6b6', endColorstr='#999', GradientType=0);
+    }
+}

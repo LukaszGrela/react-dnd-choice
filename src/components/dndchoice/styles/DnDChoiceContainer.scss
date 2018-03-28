@@ -1,0 +1,15 @@
+.dnd-choice {
+    &.container {
+        position: relative;
+    }
+    .dnd-dropzones {
+        display: flex;
+        justify-content: space-between;
+    }
+    .dnd-dragitems {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

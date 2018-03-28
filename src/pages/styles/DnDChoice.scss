@@ -1,0 +1,25 @@
+@import './pages.scss';
+.dndchoice-page {
+    .slide_heading {
+        color: #02507C;
+        font-size: 2.4rem;
+        padding: 1.5rem 0;
+    }
+    .tutorial-text {
+        padding-bottom: 2.2rem;
+    }
+    .instruction-text {
+        color: #02507C;
+        padding-left: 2.5rem;
+        background: url('../../graphic-assets/mouse_icon.jpg') no-repeat 0 0.1rem;
+    }
+    .feedback {
+        margin: 2rem;
+        color: #fff;
+    }
+    .feedback-title {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+    }
+}
