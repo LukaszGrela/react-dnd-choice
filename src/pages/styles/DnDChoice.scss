@@ -2,8 +2,11 @@
 .dndchoice-page {
     .slide_heading {
         color: #02507C;
-        font-size: 2.4rem;
         padding: 1.5rem 0;
+        h1 {
+                font-size: 2.4rem !important;
+            
+        }
     }
     .tutorial-text {
         padding-bottom: 2.2rem;

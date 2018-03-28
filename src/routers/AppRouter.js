@@ -6,7 +6,7 @@ import DnDChoice from '../pages/DnDChoice';
 
 const AppRouter = () => (
     <BrowserRouter>
-        <div>
+        <div className='app'>
             <header>Drag and Drop test</header>
             <Switch>
                 <Route path="/" exact component={Home} />
