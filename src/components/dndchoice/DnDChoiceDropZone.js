@@ -25,6 +25,8 @@ DnDChoiceDropZone.propTypes = {
     isOver: PropTypes.bool.isRequired,
     canDrop: PropTypes.bool.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
+    children: PropTypes.arrayOf(PropTypes.node),
+    locked: PropTypes.bool,
 };
 
 const dropZoneTarget = {

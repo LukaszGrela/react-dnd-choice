@@ -15,6 +15,13 @@ class DnDChoiceContainer extends React.Component {
         this.props.handleItemDropped(item, dropzoneId)
     }
 
+    renderDragItems = (list, locked) =>
+        list.map(dragitem => <DnDChoiceDragItem
+            locked={locked}
+            id={dragitem.label}
+            key={dragitem.label}
+            {...dragitem} />);
+
     render = () => {
         const { dragitems, locked } = this.props;
         const next = nextDragItemSelector(dragitems);
@@ -29,11 +36,7 @@ class DnDChoiceContainer extends React.Component {
                         locked={locked}
                         onDrop={this.handleDrop} >
                         {
-                            animals.map(dragitem => <DnDChoiceDragItem
-                                locked={locked}
-                                id={dragitem.label}
-                                key={dragitem.label}
-                                {...dragitem} />)
+                            this.renderDragItems(animals, locked)
                         }
                     </DnDChoiceDropZone>
                     <div className='dnd-dragitems'>
@@ -50,11 +53,7 @@ class DnDChoiceContainer extends React.Component {
                         locked={locked}
                         onDrop={this.handleDrop}>
                         {
-                            sports.map(dragitem => <DnDChoiceDragItem
-                                locked={locked}
-                                id={dragitem.label}
-                                key={dragitem.label}
-                                {...dragitem} />)
+                            this.renderDragItems(sports, locked)
                         }
                     </DnDChoiceDropZone>
                 </div>
@@ -63,7 +62,12 @@ class DnDChoiceContainer extends React.Component {
     }
 }
 DnDChoiceContainer.propTypes = {
-    locked: PropTypes.bool.isRequired
+    locked: PropTypes.bool.isRequired,
+    dropzones: PropTypes.array,
+    dragitems: PropTypes.arrayOf(PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        dropzone: PropTypes.string,
+    })).isRequired
 }
 
 export default DragDropContext(HTML5Backend)(DnDChoiceContainer);
